@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="default" class="LoggerAppenderDailyFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{d/m/Y H:i:s,u} %logger %-5level %msg%n" />
+        </layout>
+        <param name="file" value="../../logs/7dw-%s.log" />
+        <param name="datePattern" value="Y-m-d" />
+    </appender>
+
+    <logger name="|| 7DW ||">
+        <appender_ref ref="default" />
+    </logger>
+</configuration>
+

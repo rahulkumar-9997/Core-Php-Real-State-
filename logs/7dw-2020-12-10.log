@@ -1,0 +1,188 @@
+10/12/2020 05:30:42,226 || 7DW || INFO  Connection error : 0
+10/12/2020 05:30:42,242 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+10/12/2020 05:30:42,342 || 7DW || INFO  Flag set as 1
+10/12/2020 05:30:42,343 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+10/12/2020 05:30:42,373 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+10/12/2020 05:30:42,374 || 7DW || INFO  Detail row count : 1
+10/12/2020 05:30:45,769 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+10/12/2020 05:30:45,814 || 7DW || INFO  close: 0
+10/12/2020 05:30:45,815 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2020-12-10' AND status=1
+10/12/2020 05:30:45,831 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 05:30:45,861 || 7DW || INFO  Total Open IF
+10/12/2020 05:30:45,862 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 05:30:45,882 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2020-12-10'
+10/12/2020 05:30:45,900 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2020-12-10'
+10/12/2020 05:30:45,902 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='RD'
+10/12/2020 05:30:45,918 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='FD'
+10/12/2020 05:30:45,919 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='MIS'
+10/12/2020 05:30:45,921 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2020-12-10' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+10/12/2020 06:18:25,328 || 7DW || INFO  Connection error : 0
+10/12/2020 06:18:25,330 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+10/12/2020 06:18:25,331 || 7DW || INFO  Flag set as 1
+10/12/2020 06:18:25,332 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+10/12/2020 06:18:25,333 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+10/12/2020 06:18:25,335 || 7DW || INFO  Detail row count : 1
+10/12/2020 06:18:28,401 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+10/12/2020 06:18:28,403 || 7DW || INFO  close: 0
+10/12/2020 06:18:28,403 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2020-12-10' AND status=1
+10/12/2020 06:18:28,404 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:18:28,405 || 7DW || INFO  Total Open IF
+10/12/2020 06:18:28,406 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:18:28,407 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2020-12-10'
+10/12/2020 06:18:28,408 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2020-12-10'
+10/12/2020 06:18:28,409 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='RD'
+10/12/2020 06:18:28,411 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='FD'
+10/12/2020 06:18:28,413 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='MIS'
+10/12/2020 06:18:28,414 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2020-12-10' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+10/12/2020 06:19:00,022 || 7DW || INFO  select branch id where reload branch id : Select * FROM branch WHERE branch_id='BRC002'
+10/12/2020 06:19:03,110 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+10/12/2020 06:19:03,112 || 7DW || INFO  close: 0
+10/12/2020 06:19:03,112 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2020-12-10' AND status=1
+10/12/2020 06:19:03,113 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:19:03,114 || 7DW || INFO  Total Open IF
+10/12/2020 06:19:03,114 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:19:03,117 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2020-12-10'
+10/12/2020 06:19:03,118 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2020-12-10'
+10/12/2020 06:19:03,119 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='RD'
+10/12/2020 06:19:03,121 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='FD'
+10/12/2020 06:19:03,123 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='MIS'
+10/12/2020 06:19:03,125 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC002' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2020-12-10' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+10/12/2020 06:20:45,150 || 7DW || INFO  Common class create function query arg === INSERT INTO branch (
+                                            branch_id
+                                           ,branch_code
+                                           ,branch_name
+                                           ,country
+                                           ,state
+                                           ,district
+                                           ,pin_code
+                                           ,mobile_no
+                                           ,email
+                                           ,address
+                                           ,date
+                                           ,c_by
+                                         ) VALUES (
+                                            'BRC003' -- branch_id - IN varchar(200)
+                                           ,'BRO' -- branch_id - IN varchar(200)
+                                           ,'Byaspur' -- branch_name - IN varchar(200)
+                                           ,'India' -- country - IN varchar(200)
+                                           ,'Uttar Pradesh' -- state - IN varchar(100)
+                                           ,'varanasi' -- district - IN varchar(100)
+                                           ,'22322' -- pin_code - IN varchar(10)
+                                           ,'7474774747' -- mobile_no - IN varchar(20)
+                                           ,'gh@gmail.com'  -- email - IN varchar(50)
+                                           ,'cc' -- address - IN text
+                                           ,'2020-12-10'  -- date   
+                                           ,'admin'  -- c_by   
+                                         )
+10/12/2020 06:20:51,484 || 7DW || INFO  select branch id where reload branch id : Select * FROM branch WHERE branch_id='BRC003'
+10/12/2020 06:20:58,615 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+10/12/2020 06:20:58,616 || 7DW || INFO  close: 0
+10/12/2020 06:20:58,616 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2020-12-10' AND status=1
+10/12/2020 06:20:58,617 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:20:58,617 || 7DW || INFO  Total Open IF
+10/12/2020 06:20:58,617 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2020-12-10' AND status=1
+10/12/2020 06:20:58,618 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2020-12-10'
+10/12/2020 06:20:58,618 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2020-12-10'
+10/12/2020 06:20:58,618 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='RD'
+10/12/2020 06:20:58,619 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='FD'
+10/12/2020 06:20:58,620 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2020-12-10' AND cpm.plan_type='MIS'
+10/12/2020 06:20:58,620 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC003' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2020-12-10' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+10/12/2020 06:21:59,362 || 7DW || INFO  Action id : searchCustomer
+10/12/2020 06:21:59,362 || 7DW || INFO  Select Customer Details From Mis Detail (ajaxCommon.php) : SELECT cu.name, cu.father, cu.dob, cu.date_of_joining, cu.bank_name, cu.account_no, cu.ifsc_code, cu.account_holder_name, cu.expairy_date, cu.country, cu.gender, cu.post, cu.district, cu.pin_code, cu.address, cu.mobil_no, cu.gender, cu.nominee, cu.realation, cu.customer_img, cpm.agency_code, cpm.interest_rate_in_per, cpm.plan_name, cpm.plan_duration, cpm.plan_type, cpm.pay_mode, cpm.total_installment_amount, cpm.plan_type, cpm.installment_amount, cpm.no_of_installment, cpm.no_of_pay_installment, cih.customer_id, cih.reciept_no, cih.pay_amount, cih.pay_date, cih.no_of_installment AS cihNoOfInstallment, cmis.no_of_mis, cmis.no_of_pay_mis, cmis.mis_paid_upto_date, p.calculation_rate FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih, customer_mis_info AS cmis, plan AS p WHERE cu.customer_id=cpm.customer_id AND cpm.customer_id = cih.customer_id AND cpm.customer_id = cmis.customer_id AND cu.customer_id='CU0000007' AND cpm.customer_id='CU0000007' AND cih.customer_id='CU0000007' AND cmis.customer_id='CU0000007' AND p.plan_id=cpm.plan_id
+10/12/2020 06:21:59,412 || 7DW || INFO  Select Customer pay MIS History (ajaxCommon.php) : SELECT pay_amount, on_of_pay_mis, pay_date, transaction_id FROM customer_pay_mis_history WHERE status=1 AND customer_id='CU0000007'

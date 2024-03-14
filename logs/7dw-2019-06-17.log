@@ -1,0 +1,272 @@
+17/06/2019 11:56:30,934 || 7DW || INFO  Common class create function query arg === UPDATE expense SET
+                                    expense_name = 'Orange' -- varchar(250)
+                                   ,description = 'ORANGE' -- text
+                                   ,expense_amount = '20' -- float
+                                   ,expense_date = '2019-06-27' -- varchar(20)
+                                 WHERE expense_id = '1560576141' AND id= ''-- int(11)
+17/06/2019 11:57:22,254 || 7DW || INFO  Connection error : 0
+17/06/2019 11:57:22,256 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+17/06/2019 11:57:22,256 || 7DW || INFO  Flag set as 1
+17/06/2019 11:57:22,256 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+17/06/2019 11:57:22,257 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+17/06/2019 11:57:22,257 || 7DW || INFO  Detail row count : 1
+17/06/2019 11:57:24,719 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+17/06/2019 11:57:24,722 || 7DW || INFO  close: 0
+17/06/2019 11:57:24,722 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-17' AND status=1
+17/06/2019 11:57:24,723 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 11:57:24,725 || 7DW || INFO  Total Open IF
+17/06/2019 11:57:24,725 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 11:57:24,726 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-17'
+17/06/2019 11:57:24,727 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-17'
+17/06/2019 11:57:24,728 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='RD'
+17/06/2019 11:57:24,730 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='FD'
+17/06/2019 11:57:24,731 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='MIS'
+17/06/2019 11:57:24,733 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-17' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+17/06/2019 11:57:43,634 || 7DW || INFO  Common class create function query arg === UPDATE expense SET
+                                    expense_name = 'NANKEEN' -- varchar(250)
+                                   ,description = 'dal NAMKEEN' -- text
+                                   ,expense_amount = '200' -- float
+                                   ,expense_date = '07/02/2019' -- varchar(20)
+                                 WHERE expense_id = '1560764848' AND id= '8'-- int(11)
+17/06/2019 12:01:35,933 || 7DW || INFO  Common class create function query arg === UPDATE  expense SET status=0 WHERE id = '8' AND expense_id='1560764848' -- int(11)
+17/06/2019 12:31:51,385 || 7DW || INFO  Connection error : 0
+17/06/2019 12:31:51,387 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+17/06/2019 12:31:51,388 || 7DW || INFO  Flag set as 1
+17/06/2019 12:31:51,388 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+17/06/2019 12:31:51,389 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+17/06/2019 12:31:51,390 || 7DW || INFO  Detail row count : 1
+17/06/2019 12:31:53,973 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+17/06/2019 12:31:53,976 || 7DW || INFO  close: 0
+17/06/2019 12:31:53,976 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-17' AND status=1
+17/06/2019 12:31:53,977 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 12:31:53,978 || 7DW || INFO  Total Open IF
+17/06/2019 12:31:53,978 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 12:31:53,980 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-17'
+17/06/2019 12:31:53,983 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-17'
+17/06/2019 12:31:53,983 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='RD'
+17/06/2019 12:31:53,985 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='FD'
+17/06/2019 12:31:53,987 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='MIS'
+17/06/2019 12:31:53,988 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-17' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+17/06/2019 12:38:37,294 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560767917' -- expense_id - IN varchar(50)
+                                            ,'admin' -- user_id - IN varchar(40)
+                                            ,'BRC001' -- branch_id - IN varchar(50)
+                                            ,'ab' -- expense_name - IN varchar(250)
+                                            ,'dhsdsfsdfs'  -- description - IN text
+                                            ,'100' -- expense_amount - IN float
+                                            ,'1' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:38:37,366 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560767917' -- expense_id - IN varchar(50)
+                                            ,'admin' -- user_id - IN varchar(40)
+                                            ,'BRC001' -- branch_id - IN varchar(50)
+                                            ,'rt' -- expense_name - IN varchar(250)
+                                            ,'hiruthr'  -- description - IN text
+                                            ,'200' -- expense_amount - IN float
+                                            ,'9' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:39:51,906 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560767991' -- expense_id - IN varchar(50)
+                                            ,'admin' -- user_id - IN varchar(40)
+                                            ,'BRC001' -- branch_id - IN varchar(50)
+                                            ,' bj' -- expense_name - IN varchar(250)
+                                            ,'dfehfuer'  -- description - IN text
+                                            ,'300' -- expense_amount - IN float
+                                            ,'7' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:39:51,993 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560767991' -- expense_id - IN varchar(50)
+                                            ,'admin' -- user_id - IN varchar(40)
+                                            ,'BRC001' -- branch_id - IN varchar(50)
+                                            ,'fyuer' -- expense_name - IN varchar(250)
+                                            ,'huyuerte'  -- description - IN text
+                                            ,'4000' -- expense_amount - IN float
+                                            ,'0' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:39:52,029 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560767991' -- expense_id - IN varchar(50)
+                                            ,'admin' -- user_id - IN varchar(40)
+                                            ,'BRC001' -- branch_id - IN varchar(50)
+                                            ,'hruee' -- expense_name - IN varchar(250)
+                                            ,'4554'  -- description - IN text
+                                            ,'400' -- expense_amount - IN float
+                                            ,'7' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:49:54,876 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560768594' -- expense_id - IN varchar(50)
+                                            ,'superuser' -- user_id - IN varchar(40)
+                                            ,'VNS' -- branch_id - IN varchar(50)
+                                            ,'gfyuyu' -- expense_name - IN varchar(250)
+                                            ,'dfuerhf'  -- description - IN text
+                                            ,'300' -- expense_amount - IN float
+                                            ,'2019-06-18' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:49:54,937 || 7DW || INFO  Common class create function query arg === INSERT INTO expense (
+                                             expense_id
+                                            ,user_id
+                                            ,branch_id
+                                            ,expense_name
+                                            ,description
+                                            ,expense_amount
+                                            ,expense_date
+                                            ,status
+                                          ) VALUES (
+                                             '1560768594' -- expense_id - IN varchar(50)
+                                            ,'superuser' -- user_id - IN varchar(40)
+                                            ,'VNS' -- branch_id - IN varchar(50)
+                                            ,'uyfe' -- expense_name - IN varchar(250)
+                                            ,'bdfreuygf'  -- description - IN text
+                                            ,'400' -- expense_amount - IN float
+                                            ,'2019-06-28' -- expense_date - IN varchar(20)
+                                            ,1 -- status - IN int(5)
+                                          )
+17/06/2019 12:56:08,448 || 7DW || INFO  Connection error : 0
+17/06/2019 12:56:08,449 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+17/06/2019 12:56:08,450 || 7DW || INFO  Flag set as 1
+17/06/2019 12:56:08,450 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+17/06/2019 12:56:08,450 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+17/06/2019 12:56:08,451 || 7DW || INFO  Detail row count : 1
+17/06/2019 12:56:11,345 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+17/06/2019 12:56:11,346 || 7DW || INFO  close: 0
+17/06/2019 12:56:11,346 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-17' AND status=1
+17/06/2019 12:56:11,347 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 12:56:11,348 || 7DW || INFO  Total Open IF
+17/06/2019 12:56:11,348 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-17' AND status=1
+17/06/2019 12:56:11,348 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-17'
+17/06/2019 12:56:11,349 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-17'
+17/06/2019 12:56:11,349 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='RD'
+17/06/2019 12:56:11,350 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='FD'
+17/06/2019 12:56:11,351 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-17' AND cpm.plan_type='MIS'
+17/06/2019 12:56:11,351 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-17' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )

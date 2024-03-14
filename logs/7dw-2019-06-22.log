@@ -1,0 +1,165 @@
+22/06/2019 08:18:05,933 || 7DW || INFO  Connection error : 0
+22/06/2019 08:18:06,012 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+22/06/2019 08:18:06,470 || 7DW || INFO  Flag set as 1
+22/06/2019 08:18:06,483 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+22/06/2019 08:18:06,600 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+22/06/2019 08:18:06,602 || 7DW || INFO  Detail row count : 1
+22/06/2019 08:18:10,578 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+22/06/2019 08:18:10,977 || 7DW || INFO  close: 0
+22/06/2019 08:18:10,978 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-22' AND status=1
+22/06/2019 08:18:11,122 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 08:18:11,198 || 7DW || INFO  Total Open IF
+22/06/2019 08:18:11,198 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 08:18:11,280 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-22'
+22/06/2019 08:18:11,329 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-22'
+22/06/2019 08:18:11,460 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='RD'
+22/06/2019 08:18:11,532 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='FD'
+22/06/2019 08:18:11,533 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='MIS'
+22/06/2019 08:18:11,534 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-22' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+22/06/2019 09:06:42,015 || 7DW || INFO  Connection error : 0
+22/06/2019 09:06:42,015 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+22/06/2019 09:06:42,016 || 7DW || INFO  Flag set as 1
+22/06/2019 09:06:42,017 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+22/06/2019 09:06:42,017 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+22/06/2019 09:06:42,018 || 7DW || INFO  Detail row count : 1
+22/06/2019 09:06:43,866 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+22/06/2019 09:06:43,868 || 7DW || INFO  close: 0
+22/06/2019 09:06:43,868 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-22' AND status=1
+22/06/2019 09:06:43,870 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 09:06:43,871 || 7DW || INFO  Total Open IF
+22/06/2019 09:06:43,871 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 09:06:43,872 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-22'
+22/06/2019 09:06:43,872 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-22'
+22/06/2019 09:06:43,873 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='RD'
+22/06/2019 09:06:43,873 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='FD'
+22/06/2019 09:06:43,874 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='MIS'
+22/06/2019 09:06:43,875 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-22' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+22/06/2019 12:16:19,593 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='4'
+22/06/2019 12:16:21,744 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='4'
+22/06/2019 12:16:32,391 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='4'
+22/06/2019 12:16:46,889 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 12:16:52,289 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 12:16:56,690 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 12:17:03,031 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 12:20:34,370 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 12:20:38,766 || 7DW || INFO  Select Plan from ajaxPlanDetails.php: SELECT plan_name, duration_month, commission_in_per, plan_type, interest_rate_in_per FROM plan WHERE plan_id='1'
+22/06/2019 13:13:13,066 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+22/06/2019 13:13:13,069 || 7DW || INFO  close: 0
+22/06/2019 13:13:13,069 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-22' AND status=1
+22/06/2019 13:13:13,070 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 13:13:13,071 || 7DW || INFO  Total Open IF
+22/06/2019 13:13:13,072 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 13:13:13,073 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-22'
+22/06/2019 13:13:13,073 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-22'
+22/06/2019 13:13:13,075 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='RD'
+22/06/2019 13:13:13,078 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='FD'
+22/06/2019 13:13:13,080 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='MIS'
+22/06/2019 13:13:13,081 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'VNS' -- branch_id - IN varchar(20)
+                                                   ,'superuser'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-22' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+22/06/2019 13:13:32,412 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+22/06/2019 13:13:32,413 || 7DW || INFO  close: 0
+22/06/2019 13:13:32,414 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-22' AND status=1
+22/06/2019 13:13:32,414 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 13:13:32,415 || 7DW || INFO  Total Open IF
+22/06/2019 13:13:32,415 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-22' AND status=1
+22/06/2019 13:13:32,417 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-22'
+22/06/2019 13:13:32,419 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-22'
+22/06/2019 13:13:32,420 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='RD'
+22/06/2019 13:13:32,422 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='FD'
+22/06/2019 13:13:32,423 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-22' AND cpm.plan_type='MIS'
+22/06/2019 13:13:32,428 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'VNS' -- branch_id - IN varchar(20)
+                                                   ,'superuser'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-22' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )

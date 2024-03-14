@@ -1,0 +1,185 @@
+14/09/2022 15:17:20,899 || 7DW || INFO  Connection error : 0
+14/09/2022 15:17:20,901 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='dcadmin' AND password='43b34d414d521ddfbac928575d609175c0f85fab' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+14/09/2022 15:17:20,902 || 7DW || INFO  Flag set as 0
+14/09/2022 15:17:39,508 || 7DW || INFO  Connection error : 0
+14/09/2022 15:17:39,509 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='fadmin' AND password='1b5f8a2a5d8ab37b7fbaa63f53200aa2d7c612c6' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+14/09/2022 15:17:39,510 || 7DW || INFO  Flag set as 1
+14/09/2022 15:17:39,511 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC002'
+14/09/2022 15:17:39,511 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='fadmin'
+14/09/2022 15:17:39,512 || 7DW || INFO  Detail row count : 1
+14/09/2022 15:17:39,583 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+14/09/2022 15:17:39,585 || 7DW || INFO  close: 0
+14/09/2022 15:17:39,585 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2022-09-14' AND status=1
+14/09/2022 15:17:39,586 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:17:39,587 || 7DW || INFO  Total Open IF
+14/09/2022 15:17:39,587 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:17:39,588 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2022-09-14'
+14/09/2022 15:17:39,590 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2022-09-14'
+14/09/2022 15:17:39,591 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='RD'
+14/09/2022 15:17:39,592 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='FD'
+14/09/2022 15:17:39,593 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='MIS'
+14/09/2022 15:17:39,594 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC002' -- branch_id - IN varchar(20)
+                                                   ,'fadmin'  -- c_by - IN varchar(100)
+                                                   ,'2022-09-14' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+14/09/2022 15:17:48,132 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:17:48,134 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:17:48,134 || 7DW || INFO  New id generated : 3
+14/09/2022 15:20:03,160 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:20:03,161 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:20:03,161 || 7DW || INFO  New id generated : 3
+14/09/2022 15:20:04,727 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:20:04,729 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:20:04,729 || 7DW || INFO  New id generated : 3
+14/09/2022 15:20:20,182 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:20:20,183 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:20:20,183 || 7DW || INFO  New id generated : 3
+14/09/2022 15:20:26,879 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:20:26,880 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:20:26,881 || 7DW || INFO  New id generated : 3
+14/09/2022 15:20:28,751 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+14/09/2022 15:20:28,752 || 7DW || INFO  close: 0
+14/09/2022 15:20:28,752 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2022-09-14' AND status=1
+14/09/2022 15:20:28,753 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:20:28,753 || 7DW || INFO  Total Open IF
+14/09/2022 15:20:28,753 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:20:28,753 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2022-09-14'
+14/09/2022 15:20:28,754 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2022-09-14'
+14/09/2022 15:20:28,754 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='RD'
+14/09/2022 15:20:28,754 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='FD'
+14/09/2022 15:20:28,755 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='MIS'
+14/09/2022 15:20:28,755 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC002' -- branch_id - IN varchar(20)
+                                                   ,'fadmin'  -- c_by - IN varchar(100)
+                                                   ,'2022-09-14' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+14/09/2022 15:21:12,614 || 7DW || INFO  Delete query excuted as :: SELECT * FROM f_user_credential WHERE user_id='rahul'
+14/09/2022 15:25:44,790 || 7DW || INFO  Connection error : 0
+14/09/2022 15:25:44,791 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='fadmin' AND password='1b5f8a2a5d8ab37b7fbaa63f53200aa2d7c612c6' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+14/09/2022 15:25:44,792 || 7DW || INFO  Flag set as 1
+14/09/2022 15:25:44,792 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC002'
+14/09/2022 15:25:44,792 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='fadmin'
+14/09/2022 15:25:44,792 || 7DW || INFO  Detail row count : 1
+14/09/2022 15:25:44,830 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+14/09/2022 15:25:44,832 || 7DW || INFO  close: 0
+14/09/2022 15:25:44,832 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2022-09-14' AND status=1
+14/09/2022 15:25:44,836 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:25:44,838 || 7DW || INFO  Total Open IF
+14/09/2022 15:25:44,838 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:25:44,840 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2022-09-14'
+14/09/2022 15:25:44,841 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2022-09-14'
+14/09/2022 15:25:44,843 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='RD'
+14/09/2022 15:25:44,844 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='FD'
+14/09/2022 15:25:44,845 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='MIS'
+14/09/2022 15:25:44,847 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC002' -- branch_id - IN varchar(20)
+                                                   ,'fadmin'  -- c_by - IN varchar(100)
+                                                   ,'2022-09-14' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+14/09/2022 15:25:48,754 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:25:48,758 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:25:48,759 || 7DW || INFO  New id generated : 3
+14/09/2022 15:25:57,007 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+14/09/2022 15:25:57,009 || 7DW || INFO  close: 0
+14/09/2022 15:25:57,009 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2022-09-14' AND status=1
+14/09/2022 15:25:57,009 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:25:57,010 || 7DW || INFO  Total Open IF
+14/09/2022 15:25:57,010 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2022-09-14' AND status=1
+14/09/2022 15:25:57,011 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2022-09-14'
+14/09/2022 15:25:57,011 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2022-09-14'
+14/09/2022 15:25:57,012 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='RD'
+14/09/2022 15:25:57,013 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='FD'
+14/09/2022 15:25:57,014 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2022-09-14' AND cpm.plan_type='MIS'
+14/09/2022 15:25:57,014 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC002' -- branch_id - IN varchar(20)
+                                                   ,'fadmin'  -- c_by - IN varchar(100)
+                                                   ,'2022-09-14' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- expense - IN double
+                                                 )
+14/09/2022 15:27:43,580 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:27:43,581 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:27:43,581 || 7DW || INFO  New id generated : 3
+14/09/2022 15:29:12,125 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+14/09/2022 15:29:12,126 || 7DW || INFO  Id fetched : 002
+14/09/2022 15:29:12,126 || 7DW || INFO  New id generated : 3
+14/09/2022 15:30:27,565 || 7DW || INFO  Query Select User : SELECT * FROM f_user_detail as ud, f_user_credential as uc where ud.user_id = uc.user_id AND uc.plant='' AND uc.status='1'

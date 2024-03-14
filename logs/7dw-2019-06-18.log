@@ -1,0 +1,70 @@
+18/06/2019 08:51:43,776 || 7DW || INFO  Connection error : 0
+18/06/2019 08:51:43,807 || 7DW || INFO  Query executed as : select f_user_detail.user_id, f_user_detail.c_date, role, branch_id from f_user_credential, f_user_detail where f_user_credential.user_id='admin' AND password='d033e22ae348aeb5660fc2140aec35850c4da997' AND status='1' AND f_user_credential.user_id=f_user_detail.user_id
+18/06/2019 08:51:43,993 || 7DW || INFO  Flag set as 1
+18/06/2019 08:51:43,994 || 7DW || INFO  Branch name And Id :: SELECT branch_id, district, branch_name, branch_code FROM branch WHERE branch_id='BRC001'
+18/06/2019 08:51:44,071 || 7DW || INFO  query detail is : select * from f_user_detail where user_id='admin'
+18/06/2019 08:51:44,072 || 7DW || INFO  Detail row count : 1
+18/06/2019 08:51:48,853 || 7DW || INFO  select opening and closing table : SELECT opening_total_amount, closing_total_amount FROM opening_closing_amount ORDER BY id DESC LIMIT 1
+18/06/2019 08:51:48,955 || 7DW || INFO  close: 0
+18/06/2019 08:51:48,955 || 7DW || INFO  select expense: SELECT SUM(expense_amount) AS exp FROM expense WHERE expense_date='2019-06-18' AND status=1
+18/06/2019 08:51:49,001 || 7DW || INFO  selectOpeningAmount: SELECT SUM(pay_amount) AS opening_amount FROM customer_installment_history WHERE pay_date='2019-06-18' AND status=1
+18/06/2019 08:51:49,049 || 7DW || INFO  Total Open IF
+18/06/2019 08:51:49,049 || 7DW || INFO  agntPayCommission: SELECT SUM(pay_amount) AS agentCommission FROM agent_pay_commission_history WHERE pay_date='2019-06-18' AND status=1
+18/06/2019 08:51:49,098 || 7DW || INFO  customerReturnAmt: SELECT SUM(maturity_return_amount) AS maturityReturnAmount FROM customer_maturity_return_history WHERE status=1 AND return_date='2019-06-18'
+18/06/2019 08:51:49,157 || 7DW || INFO  payMis: SELECT SUM(pay_amount) AS customerpPayMis FROM customer_pay_mis_history WHERE status=1 AND pay_date='2019-06-18'
+18/06/2019 08:51:49,203 || 7DW || INFO  selectRd: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS rdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-18' AND cpm.plan_type='RD'
+18/06/2019 08:51:49,282 || 7DW || INFO  selectFD: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS fdAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-18' AND cpm.plan_type='FD'
+18/06/2019 08:51:49,283 || 7DW || INFO  selectMIs: SELECT cu.customer_id, cpm.customer_id, SUM(cih.pay_amount) AS misAmount FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih WHERE cpm.customer_id = cih.customer_id AND cu.customer_id = cpm.customer_id AND cu.status=1 AND cih.pay_date='2019-06-18' AND cpm.plan_type='MIS'
+18/06/2019 08:51:49,283 || 7DW || INFO  Insert Opening and closing amount : INSERT INTO opening_closing_amount (
+                                                    opening_total_amount
+                                                   ,closing_total_amount
+                                                   ,branch_id
+                                                   ,c_by
+                                                   ,`date`
+                                                   ,rd_amount
+                                                   ,fd_amount
+                                                   ,in_mis
+                                                   ,out_mis
+                                                   ,maturity_return_amount
+                                                   ,expense
+                                                 ) VALUES (
+                                                    '0' -- opening_total_amount - IN double
+                                                    ,'0' -- closing_total_amount - IN double
+                                                   ,'BRC001' -- branch_id - IN varchar(20)
+                                                   ,'admin'  -- c_by - IN varchar(100)
+                                                   ,'2019-06-18' -- date - IN varchar(20)
+                                                   ,'0'   -- rd_amount - IN double
+                                                   ,'0'   -- fd_amount - IN double
+                                                   ,'0'   -- in_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'0'   -- out_mis - IN double
+                                                   ,'300'   -- expense - IN double
+                                                 )
+18/06/2019 09:13:19,498 || 7DW || INFO  Action id : searchCustomer
+18/06/2019 09:13:19,499 || 7DW || INFO  Select Customer Details From Mis Detail (ajaxCommon.php) : SELECT cu.name, cu.father, cu.dob, cu.date_of_joining, cu.bank_name, cu.account_no, cu.ifsc_code, cu.account_holder_name, cu.expairy_date, cu.country, cu.gender, cu.post, cu.district, cu.pin_code, cu.address, cu.mobil_no, cu.gender, cu.nominee, cu.realation, cu.customer_img, cpm.agency_code, cpm.interest_rate_in_per, cpm.plan_name, cpm.plan_duration, cpm.plan_type, cpm.pay_mode, cpm.total_installment_amount, cpm.plan_type, cpm.installment_amount, cpm.no_of_installment, cpm.no_of_pay_installment, cih.customer_id, cih.reciept_no, cih.pay_amount, cih.pay_date, cih.no_of_installment AS cihNoOfInstallment, cmis.no_of_mis, cmis.no_of_pay_mis, cmis.mis_paid_upto_date, p.calculation_rate FROM customer AS cu, customer_plan_mapping AS cpm, customer_installment_history AS cih, customer_mis_info AS cmis, plan AS p WHERE cu.customer_id=cpm.customer_id AND cpm.customer_id = cih.customer_id AND cpm.customer_id = cmis.customer_id AND cu.customer_id='CU0000007' AND cpm.customer_id='CU0000007' AND cih.customer_id='CU0000007' AND cmis.customer_id='CU0000007' AND p.plan_id=cpm.plan_id
+18/06/2019 09:13:19,568 || 7DW || INFO  Select Customer pay MIS History (ajaxCommon.php) : SELECT pay_amount, on_of_pay_mis, pay_date, transaction_id FROM customer_pay_mis_history WHERE status=1 AND customer_id='CU0000007'
+18/06/2019 09:14:47,898 || 7DW || INFO  Select agent and customer from ajaxSearchPayAgentCommission.php : SELECT a.id, a.agency_code, a.branch_id, a.agent_name, a.country, a.state, a.district, a.post, a.pin_code, a.address, a.mobile_no, a.email, a.bank_name, a.email, a.bank_account_no, a.bank_ifsc_code, a.account_holder_name, a.bank_branch_name, ach.no_of_installment, ach.commission_amount, ach.pay_date, ach.agency_code,a.aadhar_card_no, a.pan_card_no, a.c_date, cu.id, cu.customer_id, cu.agency_code FROM agent AS a, customer AS cu, agent_commission_history AS ach WHERE a.agency_code = cu.agency_code AND a.agency_code = ach.agency_code AND a.agency_code='UPVNS00001' AND cu.agency_code='UPVNS00001' AND ach.agency_code='UPVNS00001' AND cu.status=1 AND a.status=1
+18/06/2019 09:14:47,916 || 7DW || INFO  Select agent commission history from ajaxSearchPayAgentCommission.php: SELECT commission_amount, pay_date, agency_code FROM agent_commission_history WHERE status=1 AND agency_code='UPVNS00001'
+18/06/2019 09:14:47,916 || 7DW || INFO  Select Total Pay Commission: SELECT agency_code, pay_amount, pay_date FROM agent_pay_commission_history WHERE status=1 AND agency_code='UPVNS00001'
+18/06/2019 09:15:08,223 || 7DW || INFO  Action id : payAgentCommission
+18/06/2019 09:15:08,224 || 7DW || INFO  Ajax Insert Agent Commission Amount : INSERT INTO agent_pay_commission_history (
+                                                            agency_code
+                                                           ,pay_amount
+                                                           ,pay_date
+                                                           ,status
+                                                           ,c_by
+                                                         ) VALUES (
+                                                            'UPVNS00001' -- agency_code - IN varchar(250)
+                                                           ,'5' -- pay_amount - IN double
+                                                           ,'2019-06-18' -- pay_date - IN varchar(20)
+                                                           ,1 -- status - IN int(5)
+                                                           ,'admin'  -- c_by - IN varchar(50)
+                                                         )
+18/06/2019 09:15:13,350 || 7DW || INFO  Select agent and customer from ajaxSearchPayAgentCommission.php : SELECT a.id, a.agency_code, a.branch_id, a.agent_name, a.country, a.state, a.district, a.post, a.pin_code, a.address, a.mobile_no, a.email, a.bank_name, a.email, a.bank_account_no, a.bank_ifsc_code, a.account_holder_name, a.bank_branch_name, ach.no_of_installment, ach.commission_amount, ach.pay_date, ach.agency_code,a.aadhar_card_no, a.pan_card_no, a.c_date, cu.id, cu.customer_id, cu.agency_code FROM agent AS a, customer AS cu, agent_commission_history AS ach WHERE a.agency_code = cu.agency_code AND a.agency_code = ach.agency_code AND a.agency_code='UPVNS00001' AND cu.agency_code='UPVNS00001' AND ach.agency_code='UPVNS00001' AND cu.status=1 AND a.status=1
+18/06/2019 09:15:13,372 || 7DW || INFO  Select agent commission history from ajaxSearchPayAgentCommission.php: SELECT commission_amount, pay_date, agency_code FROM agent_commission_history WHERE status=1 AND agency_code='UPVNS00001'
+18/06/2019 09:15:13,373 || 7DW || INFO  Select Total Pay Commission: SELECT agency_code, pay_amount, pay_date FROM agent_pay_commission_history WHERE status=1 AND agency_code='UPVNS00001'
+18/06/2019 09:22:00,575 || 7DW || INFO  select branch id where reload branch id : Select * FROM branch WHERE branch_id='BRC002'
+18/06/2019 09:36:25,924 || 7DW || INFO  select branch id where reload branch id : Select * FROM branch WHERE branch_id='BRC001'
+18/06/2019 09:36:51,947 || 7DW || INFO  Query executed as : select role_id from f_user_role ORDER BY id DESC limit 1
+18/06/2019 09:36:51,996 || 7DW || INFO  Id fetched : 002
+18/06/2019 09:36:51,997 || 7DW || INFO  New id generated : 3
